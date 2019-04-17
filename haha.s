@@ -1,0 +1,21 @@
+mulai
+MOV R0,0X4000
+MOV R1,0X00
+MOV R2,0X100
+
+loopa
+LDRB R3,[R0]
+TST R3,0X01
+BNE lanjut
+ADD R0,R0,1
+SUBS R2,R2,1
+BNE loopa
+
+lanjut
+ADD R0,R0,1
+ADD R1,R1,1
+SUBS R2,R2,1
+BNE loopa
+
+MOV R0,0X2000
+STRB R1,[R0]
